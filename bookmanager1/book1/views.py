@@ -48,13 +48,13 @@ def register(request):
 # Json
 def json(request):
     # request.Post    json数据不能通过   request.Post获取数据
-    body=request.body
+    body_str=request.body
     # print(body)
     # b'{\n\t           "name":"itcast"\n\t\t\t\t"age":10\n}'
 
 
 
-    body_str=body.decode()
+    # body_str=body.decode()
     # print(body_str)
     """
     {
@@ -67,9 +67,18 @@ def json(request):
     # json形式的字符串可以转换为Python的字典
     import json
     body_dict=json.loads(body_str)
-    print(body_dict)
+    # print(body_dict)
     # {'name': 'itcast', 'age': 10}
 
+
+########################请求头
+    # print(request.META)
+    # print(request.META['SERVER_PORT'])
+    return HttpResponse('ok')
+
+####################其他常用HttpRequest对象属性
+def method(request):
+    print(request.method)
     return HttpResponse('ok')
 
 
