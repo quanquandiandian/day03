@@ -37,7 +37,40 @@ url  以?为分割  分为2部分
 #     print(alist)
 #     return HttpResponse('ok')
 #
-###############################
+###########请求体####################
+# form表单
+def register(request):
+    data=request.POST
+    print(data)
+    # <QueryDict: {'username':['itcast'],'password':['123']}>
+    return HttpResponse('ok!')
+
+# Json
+def json(request):
+    # request.Post    json数据不能通过   request.Post获取数据
+    body=request.body
+    # print(body)
+    # b'{\n\t           "name":"itcast"\n\t\t\t\t"age":10\n}'
+
+
+
+    body_str=body.decode()
+    # print(body_str)
+    """
+    {
+                   "name":"itcast"
+                    "age":10
+    }    <class 'str'>
+    """
+
+
+    # json形式的字符串可以转换为Python的字典
+    import json
+    body_dict=json.loads(body_str)
+    print(body_dict)
+    # {'name': 'itcast', 'age': 10}
+
+    return HttpResponse('ok')
 
 
 
