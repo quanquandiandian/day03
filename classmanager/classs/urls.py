@@ -1,6 +1,7 @@
 from django.urls import path
-from classs.views import index
+from classs.views import goods
 
 urlpatterns = [
-    path('index/',index)
+    path('<cat_id>/<goods_id>',goods)
+
 ]
