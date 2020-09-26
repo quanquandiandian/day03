@@ -1,11 +1,23 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 
 # Create your views here.
-def player(request,team_id,player_id):
+def player(request,team_id,mobile):
     # 使用路径参数
     # print(team_id,player_id)
+    print(team_id,mobile)
+
+# def shop(request,city_id,mobile):
+#     print(city_id,mobile)
+#     return HttpResponse('ok')
+
+
+
+
+
+
+
 
 
     # 得到QueryDict对象
@@ -80,6 +92,9 @@ def json(request):
 def method(request):
     print(request.method)
     return HttpResponse('ok')
+
+
+#############自定义转换器
 
 
 
