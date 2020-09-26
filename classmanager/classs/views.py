@@ -77,20 +77,36 @@ def methon(request):
 
 #####################HttpResponse對象
 # HttpResponse(content=响应体,content_type=响应体数据类型,status=状态码)
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 
 def response(request):
-    response=HttpResponse('itcast python',status=200)
-    response['itcast']='python'
-    return response
+    # response=HttpResponse('itcast python',status=200)
+    # response['itcast']='python'
+    # return response
 
+#############dict>>>>>>json
+    girls=[
+        {
+            'name':'rose',
+            'address':'shunyi'
+        },
+        {
+            'name':'jack',
+            'address':'changping'
+        }
+    ]
+#     data返回的相应数据一般是字典类型
+    """
+    safe=Ture   是表示data是字典数据
+    JsonResponse  可以吧字典转化为json
+    
+    现在是非字典  改为Falue
+    
+    """
 
+    # response=JsonResponse(data=girls,safe=False)
 
-
-
-
-
-
+    # return response
 
 
 
