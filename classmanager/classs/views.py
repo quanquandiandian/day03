@@ -35,6 +35,29 @@ def post(request):
     return HttpResponse('ok')
 
 
+##################json
+# 非表单请求体数据使用  request.body  获取原始请求体数据 自己解析
+# request.body  返回bytes类型
+# 要获得请求体中{"a":1,"b":2}的json数据
+
+
+import json
+
+def post_json(request):
+    json_str = request.body
+    json_str=json_str.decode
+    rep_data = json.loads(json_str)
+    print(rep_data['a'])
+    print(rep_data['b'])
+    return HttpResponse('ok')
+
+
+
+
+
+
+
+
 
 
 
