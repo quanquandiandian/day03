@@ -147,8 +147,11 @@ def response(request):
 
     response =JsonResponse(data=infos,safe=False)
 
-    return response
+    # return response
 
+
+###########重定向
+    return redirect('http://www.baidu.com')
 
 
 
