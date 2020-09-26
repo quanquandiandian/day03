@@ -1,6 +1,6 @@
 from django.urls import path, register_converter
 from book.views import goods,get,post,post_json,method
-
+from book.views import response
 
 # 1.
 class MobileConverter():
@@ -21,4 +21,5 @@ urlpatterns=[
     path('post/',post),
     path('post_json/',post_json),
     path('method/',method),
+    path('response/',response),
 ]

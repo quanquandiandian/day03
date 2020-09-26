@@ -76,7 +76,9 @@ def method(request):
 
 ##############HttpResponse
 # HttpResponse(content=响应体,content_type=响应体数据类型,status=状态码)
-
+from django.http import HttpResponse
+def response(request):
+    return HttpResponse('itcast python',status=400)
 
 
 
