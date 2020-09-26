@@ -4,3 +4,19 @@ from django.http import HttpResponse
 def goods(request,cat_id,goods_id):
     print(cat_id,goods_id)
     return HttpResponse('ok')
+
+# 查询字符串Query  String
+# 路径中有？key1=v1&k2=v2...  使用request.GET获取  返回Query String对象
+# /get/?a=1&b=2&a=3
+def get (request):
+    a=request.GET.get('a')
+    b=request.GET.get('b')
+    alist=request.GET.getlist('a')
+    print(a)   #3
+    print(b)   #2
+    print(alist)  #['1','3']
+    return HttpResponse('ok')
+
+
+# get('键',默认值)
+# getlst('键',默认值)
