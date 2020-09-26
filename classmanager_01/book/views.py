@@ -76,12 +76,33 @@ def method(request):
 
 ##############HttpResponse
 # HttpResponse(content=响应体,content_type=响应体数据类型,status=状态码)
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 def response(request):
     return HttpResponse('itcast python',status=400)
 
+##################jsonresponse
+# dict>>>>>>>>json
+def jsonResponse(request):
+    girls=[
+        {
+            'name':'nu',
+            'age':123
+        },
+        {
+            'name':'klm',
+            'age':15
+        }
+    ]
+# data返回的相应数据  一般是字典类型
 
-
+    """
+    safe=Ture   表示data是字典数据
+    JsonResponse可以吧字典转化为json
+    
+    """
+    # response=JsonResponse(data=girls,safe=False)
+    # return response
+# [{"name": "nu", "age": 123}, {"name": "klm", "age": 15}]
 
 
 
