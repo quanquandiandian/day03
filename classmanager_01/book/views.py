@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 
@@ -103,7 +103,8 @@ def jsonResponse(request):
     # response=JsonResponse(data=girls,safe=False)
     # return response
 # [{"name": "nu", "age": 123}, {"name": "klm", "age": 15}]
-
+############重定向
+    return redirect('http://www.itcast.cn')
 
 
 
