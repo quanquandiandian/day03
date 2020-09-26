@@ -8,9 +8,7 @@ def player(request,team_id,mobile):
     # print(team_id,player_id)
     print(team_id,mobile)
 
-# def shop(request,city_id,mobile):
-#     print(city_id,mobile)
-#     return HttpResponse('ok')
+
 
 
 
@@ -95,11 +93,30 @@ def method(request):
 
 
 #############自定义转换器
+# def shop(request,city_id,mobile):
+#     print(city_id,mobile)
+#     return HttpResponse('ok')
 
 
 
+#####################HttpResponse对象
+def response(request):
+    # return HttpResponse('ok',status=500)
+    #1xx
+    #2xx   200  ok
+    #3xx
+    #4xx   请求有问题
+    # 403    Forbidden   禁止访问   权限有问题
+    # 404    NotFound     找不到页面  路由有问题
+    # 405    Method Not
+    #5xx
 
+# #######设置响应头
+    response=HttpResponse('ok')
 
+    response['name']='itcast'
+
+    return response
 
 
 

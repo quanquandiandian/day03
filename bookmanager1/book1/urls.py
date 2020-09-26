@@ -2,7 +2,7 @@ from django.urls import path
 from django.urls.converters import register_converter
 from django.urls import converters
 
-from book1.views import player, register, json, method
+from book1.views import player, register, json, method,response
 
 
 # 1.定义转换器
@@ -23,15 +23,15 @@ class MobileConverter:
 # converter 转换器类
 # type_name  转换器名字
 register_converter(MobileConverter,'phone')
-
-class MobileConverter:
-    regex = '1[3-9]\d{9}'
-
-    def to_python(self, value):
-        return value
-
-
-register_converter(MobileConverter, 'phone')
+########################定义转换器
+# class MobileConverter:
+#     regex = '1[3-9]\d{9}'
+#
+#     def to_python(self, value):
+#         return value
+#
+#
+# register_converter(MobileConverter, 'phone')
 
 urlpatterns = [
     # <转换器名字：变量名>
@@ -42,6 +42,8 @@ urlpatterns = [
     path('register/', register),
     path('json/', json),
     path('method/', method),
+    path('res/', response),
+
 
 ]
 
@@ -56,3 +58,6 @@ class IntConverter:
     def to_url(self, value):
         return str(value)
 """
+
+
+
