@@ -1,5 +1,7 @@
 from django.urls import path, register_converter
 from classs.views import goods,get,post,post_json,get_headers,methon,response
+from classs.views import set_cookie
+
 
 # 1.定义转换器
 class MobileConverter():
@@ -30,6 +32,7 @@ urlpatterns = [
     path('get_headers/',get_headers),
     path('method/',methon),
     path('response/',response),
+    path('set_cookie/',set_cookie),
 
 
 ]

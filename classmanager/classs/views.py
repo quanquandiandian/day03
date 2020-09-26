@@ -108,11 +108,26 @@ def response(request):
 
     # return response
 #######重定向
-    return redirect('/get_headers')
+    # return redirect('/get_headers')
+#####################cookie
+
+# 设置cookie
+# HttpResponse.set_cookie(cookie名,value=cookie值,max_age=cookie有效期)
+def set_cookie(request):
+    response =HttpResponse('ok')
+    response.set_cookie('itcast','python1')#临时cookie
+    response.set_cookie('itcast1','python2',max_age=60*60)
+    return response
 
 
 
+# 读取cookie
+def get_cookie(request):
+    cookie1 = request.COOKIES.get('itcast')
+    print(cookie1)
+    return HttpResponse('ok')
 
-
+# 删除cookie
+    response.delete_cookie('itcast1')
 
 
