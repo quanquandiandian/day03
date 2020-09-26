@@ -151,15 +151,84 @@ def response(request):
 
 
 ###########重定向
-    return redirect('http://www.baidu.com')
+    # return redirect('http://www.baidu.com')
+
+
+
+#############Cookie######################Session############
+"""
+第一次请求，携带  查询字符串
+http://127.0.0.1:8000/set_cookie/?username=itcast&password=123
+服务器接收到请求之后，获取username.服务器设置cookie信息，cookie信息包括  username
+浏览器接收到服务器响应之后应该把cookie保存起来
+
+
+第二次及其之后的请求，我们访问http://127.0.0.1:8000  都会携带cookie信息.  服务器就可以读取cookie信息，来判断用户身份
+
+"""
+def set_cookie(request):
+#     1.获取查询字符串数据
+    username=request.GET.get('username')
+    password=request.GET.get('password')
+#   2.服务器设置cookie信息
+#   通过响应对象.set_cookie方法
+    response=HttpResponse('set_cookie')
+#   key, value=''
+#   max_age 是一个秒数  从相应开始  计数的一个秒数
+    response.set_cookie('name',username,max_age=60*60)
+    response.set_cookie('pwd',password)
+
+    response.delete_cookie('name')
+
+    return response
+
+
+def get_cookie(request):
+#     获取cookie
+
+    print(request.COOKIES)
+# request.COOKIE   字典数据
+    name=request.COOKIES.get('name')
+    return HttpResponse(name)
+
+############################
+"""
+第一次请求，携带   查询字符串
+http：//127.0.0.1:8000/set_cookie/?username=itcast&password=123
+服务器同时会生成一个session——id的cookie信息
+浏览器接收到这个信息之后，会把cookie数据保存下来
+
+
+
+第二次及其之后的请求   都会携带这个session.  服务器会验证这个session.验证没有问题会读取相关数据.实现业务逻辑
+
+"""
+
+
+def set_session(request):
+
+#     1.模拟  获取用户信息
+    username=request.GET.get('username')
+
+#     2.设置session信息
+#       假如  我们通过模型查询  查询到了用户信息
+    user_id=1
+
+    request.session['user_id']=user_id
+    request.session['user_name']=username
 
 
 
 
+    #clear 删除session里的数据，保留key
+    # request.session.clear()
+    # flush 是删除所有数据
+    # request.session.flush()
+    request.session.set_expiry(3600)
+    return HttpResponse('set_session')
 
 
-
-
+#################
 
 
 

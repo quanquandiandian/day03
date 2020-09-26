@@ -1,8 +1,8 @@
 from django.urls import path
 from django.urls.converters import register_converter
 from django.urls import converters
-
-from book1.views import player, register, json, method,response
+from book1.views import set_cookie
+from book1.views import player, register, json, method,response,set_session
 
 
 # 1.定义转换器
@@ -43,6 +43,8 @@ urlpatterns = [
     path('json/', json),
     path('method/', method),
     path('res/', response),
+    path('session/', set_session),
+    path('cookie/', set_cookie),
 
 
 ]
