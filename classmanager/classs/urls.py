@@ -1,6 +1,6 @@
 from django.urls import path, register_converter
 from classs.views import goods,get,post,post_json,get_headers,methon,response
-from classs.views import set_cookie,get_cookie,set_session,get_session,register
+from classs.views import set_cookie,get_cookie,set_session,get_session,register,RegisterView
 
 
 # 1.定义转换器
@@ -38,5 +38,8 @@ urlpatterns = [
     path('get_session/',get_session),
     path('register/',register),
 
-
+#     视图函数:注册
+#   path('register/', views.register),
+#   类视图：注册
+    path('register/',RegisterView.as_view())
 ]

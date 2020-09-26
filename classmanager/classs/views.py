@@ -190,8 +190,16 @@ def register(request):
 #         处理POST请求  实现注册逻辑
         return HttpResponse('这里是实现注册逻辑')
 
-
-
+#########类视图使用
+from django.views.generic import View
+class RegisterView(View):
+#     类视图:处理注册
+    def get(self,request):
+#       处理get请求  返回注册页面
+        return render(request,'register.html')
+    def post(self,request):
+#         处理POST请求,实现注册逻辑
+        return HttpResponse('这里实现注册逻辑')
 
 
 
