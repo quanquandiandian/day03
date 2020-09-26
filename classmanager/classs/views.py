@@ -113,6 +113,17 @@ def response(request):
 
 # 设置cookie
 # HttpResponse.set_cookie(cookie名,value=cookie值,max_age=cookie有效期)
+"""
+第一次请求,   携带  查询字符串 
+http://127.0.0.1:8000/set_cookie/?username=itcast&password=123
+服务器接收到请求之后  获取username  服务器设置cookie信息,cookie信息包括username
+浏览器接收到服务器的响应之后 应该把cookie保存起来
+
+第二次及其之后的请求,,我们访问http://127.0.0.1:8000  都会携带cookie信息
+"""
+
+
+
 def set_cookie(request):
     response =HttpResponse('ok')
     response.set_cookie('itcast','python1')#临时cookie
@@ -128,6 +139,69 @@ def get_cookie(request):
     return HttpResponse('ok')
 
 # 删除cookie
-    response.delete_cookie('itcast1')
+#     response.delete_cookie('itcast1')
+
+############session
+"""
+第一次请求  http://127.0.0.1:8000/set_session/?username=itheima
+我们在服务器端设置session信息
+服务器同时会生成一个session_id的cookie信息
+浏览器接收到这个信息之后,会把cookie数据保存起来
+
+第二次及其之后的请求  都会携带这个session_id  服务器会验证这个session_id
+验证没有问题会读取相关数据,实现业务逻辑
+
+
+"""
+def set_session(request):
+#     1.模拟  获取用户信息
+    username=request.GET.get('username')
+# 2.设置session信息
+# 假如  通过模型查询到用户信息
+    user_id=1
+
+    request.session['user_id']=user_id
+    request.session['username']=username
+
+
+#   clear 删除session里的数据  保留key
+#   request.session.clear()
+#   flush  是删除所有数据  包括key
+#   request.session.flush()
+    request.session.set_expiry(3600)   #设置失效时间
+    return HttpResponse('ok')
+
+def get_session(request):
+
+    username=request.session.get('username')
+    user_id=request.session.get('user_id')
+
+    content='{},{}'.format(username,user_id)
+    return HttpResponse(content)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
