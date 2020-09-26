@@ -107,10 +107,22 @@ def jsonResponse(request):
     return redirect('http://www.itcast.cn')
 
 
+##################################cookie
+# HttpResponse.set_cookie(cookie名, value=cookie值, max_age=cookie有效期)
+# 设置cookie
+def set_cookie(request):
+    response=HttpResponse('ok')
+    response.set_cookie('itcast1','python')#临时cookie
+    response.set_cookie('itcast2','python2',max_age=60*60)#有效期1小时
+    return response
 
 
+# 读取cookie   request.COOKIES
+def get_cookie(request):
+    cookie1=request.COOKIES.get('itcast1')
+    print(cookie1)
+    return HttpResponse('ok')
 
-
-
-
+# 删除cookie   delete_cookie
+    response.delete_cookie('itcast2')
 
