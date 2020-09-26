@@ -179,6 +179,19 @@ def get_session(request):
     content='{},{}'.format(username,user_id)
     return HttpResponse(content)
 
+###################类视图
+def register(request):
+    """处理注册"""
+    # 获取请求方法,判断是GET/POST请求
+    if request.method == 'GET':
+#       处理GET请求, 返回注册页面
+        return render(request,'register.html')
+    else:
+#         处理POST请求  实现注册逻辑
+        return HttpResponse('这里是实现注册逻辑')
+
+
+
 
 
 
