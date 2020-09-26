@@ -39,29 +39,43 @@ def post(request):
 
 
 ########################json
+# request.body返回bytes类型
+# json形式的字符串转换为Python字典   json.loads()
 import json
 def post_json(request):
     json_str = request.body
     json_str = json_str.decode()
     json_data=json.loads(json_str)
-    print(json_data['name'])
-    print(json_data['age'])
-    print(type(json_data))
+    # print(json_data['name'])
+    # print(json_data['age'])
     # ji
     # 1
     # [26 / Sep / 2020 14: 50:14] "POST /post_json/ HTTP/1.1"
 
+    print(json_data)
+    # {'name': 'ji', 'age': 1}
+    print(type(json_data))
+    # <class 'dict'>
 
     # body=request.body
     # print(body)
     # b'{\n\t"name":"ji",\n\t"age":1\n}'
 
 
+
+##########请求头
+    print(request.META)
+    # {'PATH': '/home/ubuntu/.virtualenvs/py3_django/
+
+##############其他常用对象属性
+def method(request):
+    print(request.method)
+    # GET/POST
     return HttpResponse('ok')
 
 
-
-
+##############HttpResponse
+# HttpResponse(content=响应体,content_type=响应体数据类型,status=状态码)
 
 
 

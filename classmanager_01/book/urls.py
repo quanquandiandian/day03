@@ -1,5 +1,5 @@
 from django.urls import path, register_converter
-from book.views import goods,get,post,post_json
+from book.views import goods,get,post,post_json,method
 
 
 # 1.
@@ -20,4 +20,5 @@ urlpatterns=[
     path('get/',get),
     path('post/',post),
     path('post_json/',post_json),
+    path('method/',method),
 ]
