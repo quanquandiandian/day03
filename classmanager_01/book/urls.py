@@ -1,6 +1,6 @@
 from django.urls import path, register_converter
 from book.views import goods,get,post,post_json,method
-from book.views import response,jsonResponse,set_cookie,get_cookie
+from book.views import response,jsonResponse,set_cookie,get_cookie,set_session,get_session
 
 # 1.
 class MobileConverter():
@@ -25,4 +25,6 @@ urlpatterns=[
     path('jsonResponse/',jsonResponse),
     path('set_cookie/',set_cookie),
     path('get_cookie/',get_cookie),
+    path('set_session/',set_session),
+    path('get_session/',get_session),
 ]

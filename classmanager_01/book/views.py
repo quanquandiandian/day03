@@ -126,3 +126,34 @@ def get_cookie(request):
 # 删除cookie   delete_cookie
     response.delete_cookie('itcast2')
 
+#################session
+def set_session(request):
+
+    username=request.GET.get('username')
+
+    user_id=1
+    request.session['user_id'] = user_id
+    request.session['username'] = username
+
+    # clear 删除session里的数据，但是 key有保留
+    # request.session.clear()
+    # flush 是删除所有的数据，包括key
+    # request.session.flush()
+
+    request.session.set_expiry(3600)
+
+    return HttpResponse("set_session")
+
+
+def get_session(request):
+    # user_id=request.session['user_id']
+    # username=request.session['username']
+
+    user_id = request.session.get('user_id')
+    username = request.session.get('username')
+
+    # '%s'%username
+    content = '{} ,{}'.format(user_id, username)
+
+    return HttpResponse(content)
+
