@@ -178,7 +178,7 @@ def set_cookie(request):
     response.set_cookie('name',username,max_age=60*60)
     response.set_cookie('pwd',password)
 
-    response.delete_cookie('name')
+    # response.delete_cookie('name')
 
     return response
 
@@ -188,10 +188,10 @@ def get_cookie(request):
 
     print(request.COOKIES)
 # request.COOKIE   字典数据
-    name=request.COOKIES.get('name')
+    name=request.COOKIES.get('name','pwd')
     return HttpResponse(name)
 
-############################
+# ############################
 """
 第一次请求，携带   查询字符串
 http：//127.0.0.1:8000/set_cookie/?username=itcast&password=123
@@ -228,19 +228,41 @@ def set_session(request):
     return HttpResponse('set_session')
 
 
-#################
+#################类视图
+def login(request):
+    print(request.method)
+
+    if request.method == 'GET':
+
+        return HttpResponse('get  逻辑')
+    else:
+
+        return HttpResponse('POST 逻辑')
+
+"""
+类视图定义
+
+class 类视图名字(view):
+
+    def get(self,request)：
+        return HttpResponse('xxx')
+
+    def http_methon_lower(self,request):
+
+        return HttpResponse('xxx')
+
+1.继承自view
+2.类视图中的方法  是采用http方法小写来区分不同的请求方式
+"""
+from django.views import View
+
+class LoginView(View):
+    def get(self,request):
+        return HttpResponse('get get get')
 
 
-
-
-
-
-
-
-
-
-
-
+    def post(self,request):
+        return HttpResponse('post post post')
 
 
 
