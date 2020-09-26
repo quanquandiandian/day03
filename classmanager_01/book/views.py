@@ -8,3 +8,23 @@ def goods(request,cat_id,mobile):
     print(cat_id,mobile)
 
     return HttpResponse('ok')
+
+
+##########查询字符串
+# http://127.0.0.1:8000/get/?a=1&b=2&a=3
+def get(request):
+    a = request.GET.get('a')
+    b = request.GET.get('b')
+    alist = request.GET.getlist('a')
+    print(a)   #3
+    print(b)  #2
+    print(alist)   #['1','3']
+    return HttpResponse('ok')
+
+
+
+
+
+
+
+

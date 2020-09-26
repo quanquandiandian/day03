@@ -1,5 +1,5 @@
 from django.urls import path, register_converter
-from book.views import goods
+from book.views import goods,get
 
 
 # 1.
@@ -16,5 +16,6 @@ register_converter(MobileConverter,'phone')
 
 urlpatterns=[
     # path('<cat_id>/<goods_id>/',goods)
-    path('<int:cat_id>/<phone:mobile>/',goods)
+    path('<int:cat_id>/<phone:mobile>/',goods),
+    path('get/',get)
 ]
