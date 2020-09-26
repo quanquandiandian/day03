@@ -1,5 +1,5 @@
 from django.urls import path, register_converter
-from book.views import goods,get,post
+from book.views import goods,get,post,post_json
 
 
 # 1.
@@ -19,4 +19,5 @@ urlpatterns=[
     path('<int:cat_id>/<phone:mobile>/',goods),
     path('get/',get),
     path('post/',post),
+    path('post_json/',post_json),
 ]
