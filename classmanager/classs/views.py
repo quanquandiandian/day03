@@ -70,6 +70,13 @@ def get_headers(request):
     return HttpResponse('ok')
 
 
+#############其他请求对象
+def methon(request):
+    print(request.method)    #得到字符串‘ＧＥＴ’　‘ＰＯＳＴ’
+    return HttpResponse('ok')
+
+
+
 
 
 
