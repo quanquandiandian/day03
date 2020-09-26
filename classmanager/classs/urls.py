@@ -1,5 +1,5 @@
 from django.urls import path, register_converter
-from classs.views import goods,get,post,post_json
+from classs.views import goods,get,post,post_json,get_headers
 
 # 1.定义转换器
 class MobileConverter():
@@ -27,6 +27,6 @@ urlpatterns = [
     path('get/',get),
     path('post/',post),
     path('post_json/',post_json),
-    path('post_json/',post_json),
+    path('get_headers/',get_headers),
 
 ]

@@ -64,6 +64,11 @@ def post_json(request):
 
 ###############################自定义转换器
 
+###请求头
+def get_headers(request):
+    print(request.META['HTTP_HOST'])
+    return HttpResponse('ok')
+
 
 
 
