@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
-def goods(request,cat_id,goods_id):
-    print(cat_id,goods_id)
+def goods(request,cat_id,goods_id,mobile):
+    # print(cat_id,goods_id)
+
+    print(cat_id,mobile)
+
     return HttpResponse('ok')
+
+
+
+
 
 # 查询字符串Query  String
 # 路径中有？key1=v1&k2=v2...  使用request.GET获取  返回Query String对象
@@ -50,6 +57,13 @@ def post_json(request):
     print(rep_data['a'])
     print(rep_data['b'])
     return HttpResponse('ok')
+
+
+########验证path中路由参数
+# int:
+
+###############################自定义转换器
+
 
 
 
