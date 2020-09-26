@@ -75,8 +75,14 @@ def methon(request):
     print(request.method)    #得到字符串‘ＧＥＴ’　‘ＰＯＳＴ’
     return HttpResponse('ok')
 
+#####################HttpResponse對象
+# HttpResponse(content=响应体,content_type=响应体数据类型,status=状态码)
+from django.http import HttpResponse
 
-
+def response(request):
+    response=HttpResponse('itcast python',status=200)
+    response['itcast']='python'
+    return response
 
 
 
