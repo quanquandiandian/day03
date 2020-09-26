@@ -118,7 +118,36 @@ def response(request):
 
     return response
 
+###########HttpResponse子类
+# from django.http import HttpResponse,HttpResponseNotFound
 
+
+############JsonResponse
+from django.http import HttpResponse,JsonResponse
+def response(request):
+    # dict>>>>>>Json
+
+    infos=[
+        {
+            'name':'ku',
+            'address':'123456'
+        },
+        {
+            'name':'hdaho',
+            'hsdi':'ndkasdf'
+        }
+    ]
+    # data  返回的相应数据   一般是字典类型
+    """
+    safe = True 是表示  data是字典数据
+    JsonResponse  可以吧字典转化为json
+    现在是非字典数据，出问题自己负责 
+    """
+
+
+    response =JsonResponse(data=infos,safe=False)
+
+    return response
 
 
 
