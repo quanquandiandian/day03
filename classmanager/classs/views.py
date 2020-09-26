@@ -20,3 +20,27 @@ def get (request):
 
 # get('键',默认值)
 # getlst('键',默认值)
+
+############################
+# form表单
+# 前端发送的表单类型的请求体数据  通过request.POST获取  返回Query String对象
+
+def post(request):
+    a=request.POST.get('a')
+    b=request.POST.get('b')
+    alist = request.POST.getlist('a')
+    print(a)
+    print(b)
+    print(alist)
+    return HttpResponse('ok')
+
+
+
+
+
+
+
+
+
+
+
