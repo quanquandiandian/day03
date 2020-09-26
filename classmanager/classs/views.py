@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 def goods(request,cat_id,goods_id,mobile):
@@ -107,7 +107,8 @@ def response(request):
     # response=JsonResponse(data=girls,safe=False)
 
     # return response
-
+#######重定向
+    return redirect('/get_headers')
 
 
 
