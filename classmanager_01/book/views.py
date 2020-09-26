@@ -21,6 +21,18 @@ def get(request):
     print(alist)   #['1','3']
     return HttpResponse('ok')
 
+###################form
+
+
+# 通过request.POST属性获取  返回QueryDict对象
+def post(request):
+    a=request.POST.get('a')
+    b=request.POST.get('b')
+    alist=request.POST.getlist('a')
+    print(a)
+    print(b)
+    print(alist)
+    return HttpResponse('ok')
 
 
 
